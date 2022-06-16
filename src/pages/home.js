@@ -1,24 +1,20 @@
 import React from "react";
 
 import LeftNav from "../components/home/leftNav";
-import Content from "../components/home/content";
+import FirstRow from "../components/home/firstRow"
+import SecondRow from "../components/home/secondRow";
+import NavBar from "../components/home/navbar";
 
 const Home = () => {
   return (
     <div>
-      <h1>Je suis le home</h1>
+      <NavBar />
       <LeftNav />
-      <Content />
+      <FirstRow />
+      <SecondRow />
 
     </div>
   );
 };
-
-/*
-<SigmaContainer style={{ height: "500px", width: "500px" }}>
-        <LoadGraph />
-        
-      </SigmaContainer>
-      */
 
 export default Home;

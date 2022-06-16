@@ -20,6 +20,14 @@
   transition: all 0.4s;
 }
 
+.media-body {
+  color: rgb(102, 87, 221);
+  margin-left: 15px;
+}
+
+.textNav {
+  margin-right: 15px;
+}
 /* for toggle behavior */
 
 #sidebar.active {
@@ -51,5 +59,142 @@ body {
 }
 
 #content {
-  border: solid;
+  border-radius: 10px;
+}
+
+/* NavBar */
+
+#navbarHome {
+  border: 1px solid white ;
+  border-radius: 10px;
+  
+}
+
+.nav-item {
+  padding-right: 10px;
+}
+
+#navbarHome.active {
+  width: 100%;
+  margin: 0;
+}
+
+#navbarHome.active {
+  width: 100%;
+  margin: 0;
+}
+
+.navbarHome-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+/* First content */
+
+#first-content {
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 60px;
+}
+
+#first-content.active {
+  width: 100%;
+  margin: 0;
+}
+
+#first-content.active {
+  width: 100%;
+  margin: 0;
+}
+
+.page-content-first {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+#first-row-content {
+  border: 0.5px solid #aaa;
+  border-radius: 10px;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding-top: 40px;
+  height: 400px;
+}
+
+#row-first-content1 {
+  background-color: rgb(253, 241, 231);
+  border-radius: 10px;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 30%;
+}
+
+#row-first-content2 {
+  background-color: rgb(236, 234, 252);
+  border-radius: 10px;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 5.5%;
+  margin-bottom: 5.5%;
+  height: 30%;
+}
+
+#row-first-content3 {
+  background-color: rgb(232, 246, 254);
+  border-radius: 10px;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 30%;
+}
+
+.span4 h3 a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.smallText {
+  color: grey;
+  font-size: 14px;
+}
+
+/* Sigma */
+.containerSigma {
+  border-radius: 10px;
+}
+
+/* Notification */
+
+
+#row-notification {
+  background-color: rgb(249, 249, 249);
+  border-radius: 10px;
+  margin-left: 0px;
+  margin-right: 0%;
+  padding-left: 20px;
+  margin-top: 10px;
+  height: 15%;
+}
+
+#row-notification h3 a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
+
+.smallTextNotification {
+  color: grey;
+  font-size: 8px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.footNotification {
+  margin-top: 30px;
+  text-align: end;
+  color: rgb(102, 87, 221);
 }
