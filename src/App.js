@@ -1,8 +1,9 @@
 import React from "react";
+
 import Routes from "./components/routes"
 
 const App = () => {
-    return(
+    return (
         <div>
             <Routes />
         </div>
