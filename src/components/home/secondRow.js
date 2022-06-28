@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
+import { useSelector } from 'react-redux'
 
 import Graph from "graphology";
 import { SigmaContainer, useLoadGraph } from "@react-sigma/core";
 import "@react-sigma/core/lib/react-sigma.min.css";
 
+
 const LoadGraph = () => {
   const loadGraph = useLoadGraph();
+
+  const nodeData = useSelector((state) => state.nodesReducer); // Data get by redux
+
+  console.table(nodeData[2]?.actorName);
+  //console.log(nodeData[2].actorName);  
 
   useEffect(() => {
     const graph = new Graph();
@@ -45,12 +52,13 @@ const LoadGraph = () => {
 };
 
 const NotificationContent = () => {
+
   return (
 
     <div className="col-lg-4" id="notification" >
 
       <div className="title">
-        <h5>Alertes/ Notifications</h5>
+        <h5>Alertes/Notifications</h5>
       </div>
 
       <div className="span4" id="row-notification">
@@ -83,6 +91,7 @@ const NotificationContent = () => {
 };
 
 const SecondRow = () => {
+
   return (
     <div className="page-content p-2" id="content">
       <div className="row">

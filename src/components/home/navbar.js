@@ -5,7 +5,7 @@ const NavBar = () => {
     <div className="navbarHome-content p-4" id="navbarHome">
       <nav className="navbar navbar-expand-lg navbar-light white-light">
         <div className="container-fluid">
-          <h1>Bonjour Laurent Grizon</h1>
+          <h1>Bonjour M. TANG</h1>
 
           <button
             className="navbar-toggler"

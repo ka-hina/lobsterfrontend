@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
+    "dotenv": "^16.0.1",
     "faker": "^5.5.3",
     "graphology": "^0.24.1",
     "graphology-layout-forceatlas2": "^0.9.1",

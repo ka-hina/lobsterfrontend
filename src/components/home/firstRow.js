@@ -11,8 +11,8 @@ import {
     Title,
     Tooltip,
     Legend,
-  } from "chart.js";
-import { Bar,Radar } from "react-chartjs-2";
+} from "chart.js";
+import { Bar, Radar } from "react-chartjs-2";
 import faker from "faker";
 
 ChartJS.register(
@@ -32,25 +32,25 @@ ChartJS.register(
 
 const options = {
     indexAxis: 'y',
-    autoPadding:true,
+    autoPadding: true,
     elements: {
-      bar: {
-        borderWidth: 2
-      },
+        bar: {
+            borderWidth: 2
+        },
     },
     barPercentage: 0.5,
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        position: 'bottom',
-      },
-      title: {
-        display: true,
-        text: 'Tendance du moment',
-      },
+        legend: {
+            position: 'bottom',
+        },
+        title: {
+            display: true,
+            text: 'Tendance du moment',
+        },
     },
-  };
+};
 
 const labels = [
     'Nucléaire',
@@ -67,30 +67,30 @@ const labels = [
 const data = {
     labels,
     datasets: [
-      {
-        axis: 'y',
-        label: 'Occurence',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),//.sort((a, b) => a[1] - b[1])),
-        fill: false,
-        borderColor:
-            ['rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'],
-        backgroundColor:
-            ['rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)']
-      },
+        {
+            axis: 'y',
+            label: 'Occurence',
+            data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),//.sort((a, b) => a[1] - b[1])),
+            fill: false,
+            borderColor:
+                ['rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'],
+            backgroundColor:
+                ['rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)']
+        },
     ],
-  };
+};
 
 
 /* Radar */
@@ -98,17 +98,17 @@ const data = {
 const dataRadar = {
     labels: ['Positifs', 'Négatifs', 'Neutres'],
     datasets: [
-      {
-        label: 'Nombre de tweets',
-        data: [175, 200, 150],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 2
-      },
+        {
+            label: 'Nombre de tweets',
+            data: [175, 200, 150],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 2
+        },
     ],
-  };
+};
 
-  
+
 const Content = () => {
     return (
         <div className="page-content-first" id="first-content">
@@ -116,12 +116,12 @@ const Content = () => {
                 <div className="row">
                     <div className="col-lg" id="first-row-content">
                         <h4 className="text-center">Les sujets dont on parle le plus cette semaine</h4>
-                            <Bar options={options} data={data} />
+                        <Bar options={options} data={data} />
                     </div>
 
                     <div className="col-lg" id="first-row-content">
                         <h4 className="text-center">Avis positifs et avis négatifs</h4>
-                            <Radar data={dataRadar} />
+                        <Radar data={dataRadar} />
                     </div>
 
                     <div className="col-lg" id="first-row-content2" >

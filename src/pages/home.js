@@ -1,5 +1,4 @@
 import React from "react";
-
 import LeftNav from "../components/home/leftNav";
 import FirstRow from "../components/home/firstRow"
 import SecondRow from "../components/home/secondRow";
@@ -12,7 +11,6 @@ const Home = () => {
       <LeftNav />
       <FirstRow />
       <SecondRow />
-
     </div>
   );
 };
