@@ -30,7 +30,6 @@ ChartJS.register(
 );
 
 /* Bar */
-
 const options = {
   indexAxis: "y",
   autoPadding: true,
@@ -53,24 +52,14 @@ const options = {
   },
 };
 
-const labels = [
-  "Nucléaire",
-  "Hydrogène",
-  "Energie",
-  "Eolienne",
-  "Hydrolique",
-  "Hydrolienne",
-  "Pétrole",
-  //'Charbon',
-  //'Biogaz'
-];
+const labels = [];
+const enrollment = [];
 
-const Labelss = () => {
-  var trendlabels = useSelector((state) => state.trendsReducer); // Data get by redux
-  const labelss = [];
-  trendlabels.forEach((element) => labels.push(element.word));
-  console.table(labelss);
-};
+function Datass() {
+  var trendlabels = useSelector((state) => state.trendsReducer);
+
+  useEffect(() => {}, [trendlabels]);
+}
 
 /*
 var trendlabels = useSelector((state) => state.trendsReducer); // Data get by redux
@@ -85,7 +74,7 @@ const data = {
     {
       axis: "y",
       label: "Occurence",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })), //.sort((a, b) => a[1] - b[1])),
+      data: enrollment,
       fill: false,
       borderColor: [
         "rgba(255, 99, 132, 0.2)",
@@ -124,6 +113,17 @@ const dataRadar = {
 };
 
 const Content = () => {
+  var trendlabels = useSelector((state) => state.trendsReducer);
+
+  for (const key of Object.keys(trendlabels)) {
+    //console.log(`${trendlabels[key].word}`);
+    labels.push(`${trendlabels[key].word}`);
+    enrollment.push(`${trendlabels[key].enrollment}`)
+  }
+
+  console.log("Labels : " + labels);
+  console.log("ENR : " + enrollment);
+
   return (
     <div className="page-content-first" id="first-content">
       <div className="container-fluid">

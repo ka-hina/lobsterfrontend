@@ -26,6 +26,8 @@ const LoadGraph = () => {
     const graph = new Graph();
 
     for (const key of Object.keys(nodeData)) {
+        //x: getRandomInt(10),
+        //y: getRandomInt(10),
       graph.addNode(`${nodeData[key].actorName}`, {
         x: getRandomInt(10),
         y: getRandomInt(10),
