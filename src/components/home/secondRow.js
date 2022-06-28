@@ -5,59 +5,40 @@ import Graph from "graphology";
 import { SigmaContainer, useLoadGraph } from "@react-sigma/core";
 import "@react-sigma/core/lib/react-sigma.min.css";
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function makeRandomColor() {
+  var c = "";
+  while (c.length < 7) {
+    c += Math.random().toString(16).substr(-6).substr(-1);
+  }
+  return "#" + c;
+}
+
 const LoadGraph = () => {
   const loadGraph = useLoadGraph();
 
   var nodeData = useSelector((state) => state.nodesReducer); // Data get by redux
 
-  console.table(nodeData);
-  console.log("Name : " + nodeData[2]?.actorName);
-
-
-
   useEffect(() => {
-    
     const graph = new Graph();
 
-    //for(var item in nodeData) {
-      graph.addNode("first", {
-        x: 0,
-        y: 0,
-        size: 15,
-        label: name,
-        color: "#FA4F40",
+    for (const key of Object.keys(nodeData)) {
+      graph.addNode(`${nodeData[key].actorName}`, {
+        x: getRandomInt(10),
+        y: getRandomInt(10),
+        size: 20,
+        label: `${nodeData[key].actorName}`,
+        color: makeRandomColor(),
       });
-    //}
+    }
 
-
-  
-
-    graph.addNode("sec", {
-      x: 0,
-      y: 3,
-      size: 15,
-      label: "Sarah l'esclave d'Oni",
-      color: "noir",
-    });
-
-    graph.addNode("trois", {
-      x: 2,
-      y: 2,
-      size: 15,
-      label: "François l'esclave d'Oni 💩",
-      color: "blue",
-    });
-
-    // Adding an edge
-    //graph.addEdge("first", "sec");
-    //graph.addEdge("first", "trois", {
-    //  type: "arrow",
-    //  label: "works with",
-    //  size: 5,
-    //});
+    // graph.addEdge("first", "sec");
 
     loadGraph(graph);
-  }, [loadGraph]);
+  }, [loadGraph, nodeData]);
 
   return null;
 };
