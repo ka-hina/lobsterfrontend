@@ -9,6 +9,7 @@ import Home from "../../pages/home";
 import Users from "../../pages/users";
 import Graph from "../../pages/graph";
 import Profil from "../../pages/profil";
+import cloudword from "../../pages/cloudword"
 
 const index = () => {
   return (
