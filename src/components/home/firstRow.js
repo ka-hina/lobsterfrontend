@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useSelector } from "react-redux";
 import {
   Chart as ChartJS,
@@ -113,16 +114,31 @@ const dataRadar = {
 };
 
 const Content = () => {
-  var trendlabels = useSelector((state) => state.trendsReducer);
+  const [positiveCount, setPositiveCount] = useState(0);
+
+  const trendlabels = useSelector((state) => state.trendsReducer);
+
+  const labels = [];
+  const enrollment = [];
 
   for (const key of Object.keys(trendlabels)) {
-    //console.log(`${trendlabels[key].word}`);
     labels.push(`${trendlabels[key].word}`);
-    enrollment.push(`${trendlabels[key].enrollment}`)
+    enrollment.push(`${trendlabels[key].enrollment}`);
   }
 
-  console.log("Labels : " + labels);
-  console.log("ENR : " + enrollment);
+  useEffect(() => {
+    fetchPositiveCount();
+  }, []);
+
+  const fetchPositiveCount = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/polarite/count-positive");
+      setPositiveCount(response.data.count);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div className="page-content-first" id="first-content">
@@ -152,7 +168,7 @@ const Content = () => {
             </div>
             <div className="span4" id="row-first-content2">
               <h3 className="text-center" v>
-                <a href="#">26</a>
+              <a href="#">{positiveCount}</a>
               </h3>
               <p className="text-center">Nouveaux acteurs</p>
               <p className="text-center smallText">
@@ -174,9 +190,6 @@ const Content = () => {
     </div>
   );
 };
-
-
-
 
 
 
