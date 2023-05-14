@@ -134,14 +134,21 @@ enrollment.push(trendlabels[key].freq);
           <div className="col-md" id="first-row-content">
             <h4 className="text-center">
             
-              Les sujets dont on parle le plus cette semaine
+              Twitter et la Transition Energétique
             </h4>
+            <div  style={{ width: "100%", height : "90%" }} >
             <Bar options={options} data={data} />
+            </div>
+            
           </div>
 
           <div className="col-lg" id="first-row-content">
-            <h4 className="text-center">Avis positifs et avis négatifs</h4>
+            <h4 className="text-center">Evolution degré controverses </h4>
+            <div  style={{ width: "100%", height: "10%", justifyContent: "center", alignItems: "center" }} >
+
             <Radar data={dataRadar} />
+            </div>
+            
           </div>
 
           <div className="col-lg" id="first-row-content2">

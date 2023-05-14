@@ -10,7 +10,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("component mounted!");
     dispatch(getTrends());
   }, [dispatch]);
 
