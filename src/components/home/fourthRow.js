@@ -72,16 +72,7 @@ const labelss = [];
 trendlabels.forEach((element) => labelss.push(element.word));
 console.table(labelss);
 */
-const data = {
-  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    datasets: [
-      {
-        label: "Hours Studied in Geeksforgeeks",
-        data: [2, 5, 6, 7, 3],
-        backgroundColor: ["blue", "green", "yellow", "pink", "orange"],
-      }
-    ]
-}
+
 
 const options = {
   scale: {
@@ -114,13 +105,39 @@ const optionsPie = {
 
 const Content = () => {
 
-  const [positiveCount, setPositiveCount] = useState(0);
+  const themes = useSelector((state) => state.themesReducer);
+  const [theme, setTheme] = useState([]);
+  const [count, setCount] = useState([]);
 
-  const trendlabels = useSelector((state) => state.trendsReducer);
+  
+  useEffect(() => {
+    if (themes) {
+      const newTheme = [];
+      const newCount = [];
 
-  const labels = [];
-const enrollment = [];
+  
+      Object.keys(themes).map(key => {
+        newTheme.push(themes[key].Thème);
+        newCount.push(themes[key].Count);
 
+      });
+  
+      setTheme(newTheme);
+      console.log("MAREECARR", newTheme);
+      setCount(newCount);
+    }
+  }, [themes]);
+    
+  const data = {
+    labels: theme,
+      datasets: [
+        {
+          label: "Tendances thématiques sur la Transition Energétique",
+          data: count,
+          backgroundColor: ["blue", "green", "yellow", "pink", "orange"],
+        }
+      ]
+  }
 
   return (
     <div className="page-content-first" id="first-content">
@@ -137,12 +154,12 @@ const enrollment = [];
    
           </div>
 
-          <div className="col-lg" id="first-row-content">
+          {/* <div className="col-lg" id="first-row-content">
             <h4 className="text-center">Recentrage sur le mois d'Avril</h4>
             <div  style={{ width: "50%", height: "80%", display: "flex", justifyContent: "center", alignItems: "center", marginLeft : "25%" }} >
             <Pie data={dataPie} options={optionsPie} />
             </div>
-          </div>
+          </div> */}
 
             </div>
       </div>
