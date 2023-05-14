@@ -11,11 +11,6 @@ import { getTrends } from "./actions/trends.actions";
 import { getOccurences } from "./actions/occurence.actions";
 import { getPolarites } from "./actions/polarite.actions";
 import { getTweetes } from "./actions/tweets.actions";
-const mongoosePaginate = require('mongoose-paginate-v2');
-
-
-// Dans votre code de configuration, vous pouvez ajouter cette ligne
-mongoosePaginate.paginate.options = { pagination: false };
 
 // dev tools
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -34,7 +29,6 @@ store.dispatch(getTweetes());
 
 ReactDOM.render(
   <Provider store={store}>
-    
     <App />
   </Provider>,
   document.getElementById("root")
