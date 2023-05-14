@@ -36,7 +36,7 @@ const options = {
   autoPadding: true,
   elements: {
     bar: {
-      borderWidth: 2,
+      borderWidth: 3,
     },
   },
   barPercentage: 0.5,
@@ -53,8 +53,7 @@ const options = {
   },
 };
 
-const labels = [];
-const enrollment = [];
+
 
 function Datass() {
   var trendlabels = useSelector((state) => state.trendsReducer);
@@ -68,6 +67,15 @@ const labelss = [];
 trendlabels.forEach((element) => labelss.push(element.word));
 console.table(labelss);
 */
+
+
+const Content = () => {
+  const [positiveCount, setPositiveCount] = useState(0);
+
+  const trendlabels = useSelector((state) => state.trendsReducer);
+
+  const labels = [];
+const enrollment = [];
 
 const data = {
   labels,
@@ -99,6 +107,7 @@ const data = {
   ],
 };
 
+
 /* Radar */
 const dataRadar = {
   labels: ["Positifs", "Négatifs", "Neutres"],
@@ -113,39 +122,18 @@ const dataRadar = {
   ],
 };
 
-const Content = () => {
-  const [positiveCount, setPositiveCount] = useState(0);
-
-  const trendlabels = useSelector((state) => state.trendsReducer);
-
-  const labels = [];
-  const enrollment = [];
-
-  for (const key of Object.keys(trendlabels)) {
-    labels.push(`${trendlabels[key].word}`);
-    enrollment.push(`${trendlabels[key].enrollment}`);
-  }
-
-  useEffect(() => {
-    fetchPositiveCount();
-  }, []);
-
-  const fetchPositiveCount = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/polarite/count-positive");
-      setPositiveCount(response.data.count);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+Object.keys(trendlabels).map(key => {
+labels.push(trendlabels[key].mots);
+enrollment.push(trendlabels[key].freq);
+});
 
   return (
     <div className="page-content-first" id="first-content">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg" id="first-row-content">
+          <div className="col-md" id="first-row-content">
             <h4 className="text-center">
+            
               Les sujets dont on parle le plus cette semaine
             </h4>
             <Bar options={options} data={data} />
