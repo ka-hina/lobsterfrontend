@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Graph from "graphology";
 import { SigmaContainer, useLoadGraph } from "@react-sigma/core";
 import "@react-sigma/core/lib/react-sigma.min.css";
+import { getNodes } from "../../actions/nodesAction";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -19,23 +20,24 @@ function makeRandomColor() {
 
 const LoadGraph = () => {
   const loadGraph = useLoadGraph();
+  const dispatch = useDispatch();
 
   var nodeData = useSelector((state) => state.nodesReducer); // Data get by redux
 
   useEffect(() => {
     const graph = new Graph();
-
-    for (const key of Object.keys(nodeData)) {
-        //x: getRandomInt(10),
-        //y: getRandomInt(10),
-      graph.addNode(`${nodeData[key].actorName}`, {
-        x: getRandomInt(10),
-        y: getRandomInt(10),
-        size: 20,
-        label: `${nodeData[key].actorName}`,
-        color: makeRandomColor(),
-      });
-    }
+    dispatch(getNodes())
+    // for (const key of Object.keys(nodeData)) {
+    //     //x: getRandomInt(10),
+    //     //y: getRandomInt(10),
+    //   graph.addNode(`${nodeData[key].actorName}`, {
+    //     x: getRandomInt(10),
+    //     y: getRandomInt(10),
+    //     size: 20,
+    //     label: `${nodeData[key].actorName}`,
+    //     color: makeRandomColor(),
+    //   });
+    // }
 
     // graph.addEdge("first", "sec");
 
@@ -101,7 +103,7 @@ const SecondRow = () => {
               margin: "0",
             }}
           >
-            <LoadGraph />
+            {/* <LoadGraph /> */}
           </SigmaContainer>
         </div>
         <NotificationContent />

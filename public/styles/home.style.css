@@ -65,9 +65,8 @@ body {
 /* NavBar */
 
 #navbarHome {
-  border: 1px solid white ;
+  border: 1px solid white;
   border-radius: 10px;
-  
 }
 
 .nav-item {
@@ -117,8 +116,6 @@ body {
 #first-row-content {
   border: 0.5px solid #aaa;
   border-radius: 10px;
-  margin-left: 1%;
-  margin-right: 1%;
   padding-top: 40px;
   height: 500px;
 }
@@ -128,7 +125,6 @@ body {
   border-radius: 10px;
   margin-left: 0%;
   margin-right: 0%;
-  height: 30%;
 }
 
 #row-first-content2 {
@@ -136,9 +132,7 @@ body {
   border-radius: 10px;
   margin-left: 0%;
   margin-right: 0%;
-  margin-top: 5.5%;
   margin-bottom: 5.5%;
-  height: 30%;
 }
 
 #row-first-content3 {
@@ -166,7 +160,6 @@ body {
 }
 
 /* Notification */
-
 
 #row-notification {
   background-color: rgb(249, 249, 249);
@@ -197,4 +190,47 @@ body {
   margin-top: 30px;
   text-align: end;
   color: rgb(102, 87, 221);
+}
+
+.top5TweetsContainer {
+  padding: 20px;
+  width: 100%;
+}
+.top5TweetsProgressBar {
+  width: 100%;
+  display: flex;
+}
+.progressBarContainer {
+  width: 100%;
+}
+
+.truncateContextText {
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top5LikedTweetsColumn {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.datePicker {
+  width: fit-content;
+  align-self: end;
+}
+.tweetsBarGraphContainer {
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  
+}
+
+.tweetsBarGraphDatePicker {
+  align-self: end;
+}
+
+.sentimentPieChart{
+  justify-content: center;
 }

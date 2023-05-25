@@ -1,14 +1,14 @@
-import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { backendApi } from "../api";
 
-export const GET_OCCURENCE = "GET_OCCURENCE";
-
-export const getOccurences = () => {
-  return (dispatch) => {
-    return axios
-    .get(`${process.env.REACT_APP_API_URL}occurence`)
-      .then((res) => {
-        dispatch({ type: getOccurences, payload: res.data });
-      })
-      .catch((err) => console.log(err));
-  };
-};
+export const getTop10UsedWords = createAsyncThunk(
+  "top10UsedWords/get",
+  async (values, { rejectWithValue }) => {
+    try {
+      const { data } = await backendApi.get("/top10UsedWords");
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
